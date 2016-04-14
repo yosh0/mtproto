@@ -305,7 +305,7 @@ func (m *MTProto) SendRoutine() {
 		err := m.SendPacket(x.msg, x.resp)
 		if err != nil {
 			fmt.Println("SendRoutine:", err)
-			os.Exit(2)
+//			os.Exit(2) // For Daemons :)
 		}
 	}
 }
@@ -315,7 +315,7 @@ func (m *MTProto) ReadRoutine(stop <-chan struct{}) {
 		data, err := m.Read(stop)
 		if err != nil {
 			fmt.Println("ReadRoutine:", err)
-			os.Exit(2)
+//			os.Exit(2) // For Daemons :)
 		}
 		if data == nil {
 			return
